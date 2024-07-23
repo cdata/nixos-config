@@ -91,22 +91,6 @@
         "type": "github"
       }
     },
-    "flake-compat": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1696426674,
-        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -540,8 +524,7 @@
         "hyprpicker": "hyprpicker",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_6",
-        "nur": "nur",
-        "spicetify-nix": "spicetify-nix"
+        "nur": "nur"
       }
     },
     "rust-analyzer-src": {
@@ -558,27 +541,6 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
-        "type": "github"
-      }
-    },
-    "spicetify-nix": {
-      "inputs": {
-        "flake-compat": "flake-compat",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1721448793,
-        "narHash": "sha256-k3gP2K58IkxRZRbr17gNkIo36YnjBFmmokm6G2GC2yw=",
-        "owner": "gerg-l",
-        "repo": "spicetify-nix",
-        "rev": "f244c6e512a4ca4211414c2c37f5f7516cfbab24",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gerg-l",
-        "repo": "spicetify-nix",
         "type": "github"
       }
     },
