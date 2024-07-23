@@ -36,6 +36,8 @@
       percentageAction = 3;
       criticalPowerAction = "PowerOff";
     };
+
+    openssh.enable = true;
   };
 
   boot = {
