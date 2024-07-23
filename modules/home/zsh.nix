@@ -23,11 +23,9 @@
       cat = "bat";
       nano = "micro";
       code = "codium";
-      py = "python";
       icat = "kitten icat";
       dsize = "du -hs";
       findw = "grep -rl";
-      pdf = "tdf";
       open = "xdg-open";
 
       l = "eza --icons  -a --group-directories-first -1"; #EZA_ICON_SPACING=2
@@ -35,12 +33,12 @@
       tree = "eza --icons --tree --group-directories-first";
 
       # Nixos
-      cdnix = "cd ~/nixos-config && codium ~/nixos-config";
+      cdnix = "cd ~/.nixos-config && codium ./";
       ns = "nix-shell --run zsh";
       nix-shell = "nix-shell --run zsh";
-      nix-switch = "sudo nixos-rebuild switch --flake ~/nixos-config#${host}";
-      nix-switchu = "sudo nixos-rebuild switch --upgrade --flake ~/nixos-config#${host}";
-      nix-flake-update = "sudo nix flake update ~/nixos-config#";
+      nix-switch = "sudo nixos-rebuild switch --flake ~/.nixos-config#${host}";
+      nix-switchu = "sudo nixos-rebuild switch --upgrade --flake ~/.nixos-config#${host}";
+      nix-flake-update = "sudo nix flake update ~/.nixos-config#";
       nix-clean = "sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo rm /nix/var/nix/gcroots/auto/* && nix-collect-garbage && nix-collect-garbage -d";
 
       # Git
@@ -62,10 +60,6 @@
       gchb = "git checkout -b";
       gcoe = "git config user.email";
       gcon = "git config user.name";
-
-      # python
-      piv = "python -m venv .venv";
-      psv = "source .venv/bin/activate";
     };
   };
 

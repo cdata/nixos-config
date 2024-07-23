@@ -1,5 +1,5 @@
 {
-  description = "FrostPhoenix's nixos configuration";
+  description = "cdata's nixos configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -35,15 +35,12 @@
       url = "github:catppuccin/starship";
       flake = false;
     };
-
-    spicetify-nix.url = "github:gerg-l/spicetify-nix";
-    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, self, ...} @ inputs:
   let
     selfPkgs = import ./pkgs;
-    username = "frostphoenix";
+    username = "USER_NAME";
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
@@ -54,15 +51,10 @@
   {
     overlays.default = selfPkgs.overlay;
     nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
+      framework-16-7940 = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ (import ./hosts/desktop) ];
-        specialArgs = { host="desktop"; inherit self inputs username ; };
-      };
-      laptop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [ (import ./hosts/laptop) ];
-        specialArgs = { host="laptop"; inherit self inputs username ; };
+        modules = [ (import ./hosts/framework-16-7940) ];
+        specialArgs = { host="framework-16-7940"; inherit self inputs username ; };
       };
        vm = nixpkgs.lib.nixosSystem {
         inherit system;

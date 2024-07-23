@@ -5,7 +5,7 @@ stdenv.mkDerivation rec {
   version = "1.0";
 
   src = fetchFromGitHub {
-    owner = "Frost-Phoenix";
+    owner = "cdata";
     repo = "nixos-config";
     rev = "main";
     sha256 = ""; # Replace with the actual hash
