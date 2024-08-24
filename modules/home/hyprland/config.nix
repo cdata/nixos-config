@@ -1,8 +1,8 @@
-{ ... }: 
+{ ... }:
 {
   wayland.windowManager.hyprland = {
     settings = {
-      
+
       # autostart
       exec-once = [
         "systemctl --user import-environment &"
@@ -10,8 +10,9 @@
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &"
         "nm-applet &"
         "wl-clip-persist --clipboard both"
-        "swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
+        "swaybg -m fill -i $(find ~/Pictures/wallpaper/ -maxdepth 1 -type f) &"
         "hyprctl setcursor Nordzy-cursors 22 &"
+        "hyprpaper &"
         "poweralertd &"
         "waybar &"
         "swaync &"
@@ -21,25 +22,27 @@
 
       input = {
         kb_layout = "us,fr";
-        kb_options ="grp:alt_caps_toggle"; 
+        kb_options = "grp:alt_caps_toggle";
         numlock_by_default = true;
         follow_mouse = 1;
         sensitivity = 0;
         touchpad = {
-          natural_scroll = true;
+          natural_scroll = false;
         };
       };
 
       general = {
         "$mainMod" = "SUPER";
         layout = "dwindle";
-        gaps_in = 0;
-        gaps_out = 0;
+        gaps_in = 2;
+        gaps_out = 4;
         border_size = 2;
         "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
         "col.inactive_border" = "0x00000000";
-        border_part_of_window = false;
+        border_part_of_window = true;
         no_border_on_floating = false;
+        resize_on_border = true;
+        extend_border_grab_area = 4;
       };
 
       misc = {
@@ -53,7 +56,7 @@
       };
 
       dwindle = {
-        no_gaps_when_only = true;
+        no_gaps_when_only = false;
         force_split = 0;
         special_scale_factor = 1.0;
         split_width_multiplier = 1.0;
@@ -69,15 +72,15 @@
       };
 
       decoration = {
-        rounding = 0;
+        rounding = 3;
         # active_opacity = 0.90;
         # inactive_opacity = 0.90;
         # fullscreen_opacity = 1.0;
 
         blur = {
           enabled = true;
-          size = 1;
-          passes = 1;
+          size = 10;
+          passes = 3;
           # size = 4;
           # passes = 2;
           brightness = 1;
@@ -91,10 +94,10 @@
         drop_shadow = true;
 
         shadow_ignore_window = true;
-        shadow_offset = "0 2";
-        shadow_range = 20;
+        shadow_offset = "0 0";
+        shadow_range = 10;
         shadow_render_power = 3;
-        "col.shadow" = "rgba(00000055)";
+        "col.shadow" = "rgba(11112277)";
       };
 
       animations = {
@@ -125,15 +128,21 @@
         ];
       };
 
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_distance = 500;
+        workspace_swipe_min_speed_to_force = 5;
+      };
+
       bind = [
         # show keybinds list
         "$mainMod, F1, exec, show-keybinds"
 
         # keybindings
-        "$mainMod, Return, exec, kitty"
-        "ALT, Return, exec, kitty --title float_kitty"
-        "$mainMod SHIFT, Return, exec, kitty --start-as=fullscreen -o 'font_size=16'"
-        "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] floorp'"
+        "$mainMod, T, exec, kitty"
+        "ALT, T, exec, kitty --title float_kitty"
+        "ALT SHIFT, T, exec, kitty --start-as=fullscreen -o 'font_size=16'"
+        "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] google-chrome'"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
@@ -144,7 +153,7 @@
         "$mainMod, Escape, exec, swaylock"
         "$mainMod SHIFT, Escape, exec, shutdown-script"
         "$mainMod, P, pseudo,"
-        "$mainMod, J, togglesplit,"
+        #"$mainMod, J, togglesplit,"
         "$mainMod, E, exec, nemo"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, C ,exec, hyprpicker -a"
@@ -160,6 +169,11 @@
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
+
+        "$mainMod, h, movefocus, l"
+        "$mainMod, l, movefocus, r"
+        "$mainMod, k, movefocus, u"
+        "$mainMod, j, movefocus, d"
 
         # switch workspace
         "$mainMod, 1, workspace, 1"
@@ -187,10 +201,18 @@
         "$mainMod CTRL, c, movetoworkspace, empty"
 
         # window control
+        "ALT, TAB, focuscurrentorlast"
+
         "$mainMod SHIFT, left, movewindow, l"
         "$mainMod SHIFT, right, movewindow, r"
         "$mainMod SHIFT, up, movewindow, u"
         "$mainMod SHIFT, down, movewindow, d"
+
+        "$mainMod SHIFT, h, movewindow, l"
+        "$mainMod SHIFT, l, movewindow, r"
+        "$mainMod SHIFT, k, movewindow, u"
+        "$mainMod SHIFT, j, movewindow, d"
+
         "$mainMod CTRL, left, resizeactive, -80 0"
         "$mainMod CTRL, right, resizeactive, 80 0"
         "$mainMod CTRL, up, resizeactive, 0 -80"

@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   programs.vscode = {
     enable = true;
@@ -8,18 +8,28 @@
       bbenoist.nix
       # nix-shell suport 
       arrterian.nix-env-selector
+      # Nix IDE
+      jnoortheen.nix-ide
       # python
       ms-python.python
-      # C/C++
-      ms-vscode.cpptools
-      # OCaml
-      ocamllabs.ocaml-platform
 
       # Color theme
       catppuccin.catppuccin-vsc
       catppuccin.catppuccin-vsc-icons
+
+      #drcika.apc-extension
+
+      #s-nlf-fh.glassit
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "glassit";
+        publisher = "s-nlf-fh";
+        version = "0.2.6";
+        sha256 = "sha256-LcAomgK91hnJWqAW4I0FAgTOwr8Kwv7ZhvGCgkokKuY=";
+      }
     ];
     userSettings = {
+      "glassit.alpha" = 20;
       "update.mode" = "none";
       "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
       "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
@@ -60,30 +70,10 @@
 
       "editor.mouseWheelZoom" = true;
 
-      "C_Cpp.autocompleteAddParentheses" = true;
-      "C_Cpp.formatting" = "clangFormat";
-      "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyFunction" = true;
-      "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyType" = true;
-      "C_Cpp.vcFormat.space.beforeEmptySquareBrackets" = true;
-      "C_Cpp.vcFormat.newLine.beforeOpenBrace.block" = "sameLine";
-      "C_Cpp.vcFormat.newLine.beforeOpenBrace.function" = "sameLine";
-      "C_Cpp.vcFormat.newLine.beforeElse" = false;
-      "C_Cpp.vcFormat.newLine.beforeCatch" = false;
-      "C_Cpp.vcFormat.newLine.beforeOpenBrace.type" = "sameLine";
-      "C_Cpp.vcFormat.space.betweenEmptyBraces" = true;
-      "C_Cpp.vcFormat.space.betweenEmptyLambdaBrackets" = true;
-      "C_Cpp.vcFormat.indent.caseLabels" = true;
-      "C_Cpp.intelliSenseCacheSize" = 2048;
-      "C_Cpp.intelliSenseMemoryLimit" = 2048;
-      "C_Cpp.default.browse.path" = [
-        ''''${workspaceFolder}/**''
-      ];
-      "C_Cpp.default.cStandard" = "gnu11";
-      "C_Cpp.inlayHints.parameterNames.hideLeadingUnderscores" = false;
-      "C_Cpp.intelliSenseUpdateDelay" = 500;
-      "C_Cpp.workspaceParsingPriority" = "medium";
-      "C_Cpp.clang_format_sortIncludes" = true;
-      "C_Cpp.doxygen.generatedStyle" = "/**";
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nil";
+      "nix.formatterPath" = "nixpkgs-fmt";
+      "nix.serverSettings.nil.formatting.command" = [ "nixpkgs-fmt" ];
     };
     # Keybindings
     keybindings = [

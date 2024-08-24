@@ -1,13 +1,13 @@
 { ... }:
 {
   programs.waybar.settings.mainBar = {
-    position= "bottom";
+    position= "top";
     layer= "top";
     height= 5;
-    margin-top= 0;
-    margin-bottom= 0;
-    margin-left= 0;
-    margin-right= 0;
+    margin-top= 6;
+    margin-bottom= 2;
+    margin-left= 6;
+    margin-right= 6;
     modules-left= [
         "custom/launcher" 
         "hyprland/workspaces"

@@ -25,7 +25,8 @@ in
     }
 
     window#waybar {
-        background: none;
+        background: #35254a;
+        border-radius: 3px;
     }
 
     #workspaces {

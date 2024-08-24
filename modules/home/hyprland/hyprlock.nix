@@ -27,7 +27,7 @@
     # BACKGROUND
     background {
       monitor =
-      path = ~/Pictures/wallpapers/others/cat-leaves.png
+      path = ~/Pictures/wallpapers/default.png
       color = $base
       blur_passes = 0
     }
