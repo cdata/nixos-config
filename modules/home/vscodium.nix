@@ -14,31 +14,30 @@
       ms-python.python
 
       # Color theme
-      catppuccin.catppuccin-vsc
+      dracula-theme.theme-dracula
+      # catppuccin.catppuccin-vsc
       catppuccin.catppuccin-vsc-icons
 
       #drcika.apc-extension
-
       #s-nlf-fh.glassit
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
-        name = "glassit";
-        publisher = "s-nlf-fh";
-        version = "0.2.6";
-        sha256 = "sha256-LcAomgK91hnJWqAW4I0FAgTOwr8Kwv7ZhvGCgkokKuY=";
+        name = "shades-of-purple";
+        publisher = "ahmadawais";
+        version = "7.3.2";
+        sha256 = "sha256-m3S54YzkgAFgeKuhz+39FvkdejpLwMPaxsLCd17iBYM=";
       }
     ];
     userSettings = {
-      "glassit.alpha" = 20;
       "update.mode" = "none";
       "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
       "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
 
       "window.menuBarVisibility" = "toggle";
-      "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'SymbolsNerdFont', 'monospace', monospace";
-      "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font', 'SymbolsNerdFont'";
+      "editor.fontFamily" = "'Cascadia Code', 'JetBrainsMono Nerd Font', 'SymbolsNerdFont', 'monospace', monospace";
+      "terminal.integrated.fontFamily" = "'Cascadia Code', 'JetBrainsMono Nerd Font', 'SymbolsNerdFont'";
       "editor.fontSize" = 16;
-      "workbench.colorTheme" = "Catppuccin Mocha";
+      "workbench.colorTheme" = "Shades of Purple";
       "workbench.iconTheme" = "catppuccin-mocha";
       "catppuccin.accentColor" = "lavender";
       "vsicons.dontShowNewVersionMessage" = true;

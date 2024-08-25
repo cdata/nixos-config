@@ -5,23 +5,26 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-amd" "amdgpu" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/ede9e63f-c7a6-4e97-b8a5-82d1eae0dfaf";
+    {
+      device = "/dev/disk/by-uuid/ede9e63f-c7a6-4e97-b8a5-82d1eae0dfaf";
       fsType = "ext4";
     };
 
   boot.initrd.luks.devices."luks-dbe513ae-add4-4c3a-9208-ce37b6894c0a".device = "/dev/disk/by-uuid/dbe513ae-add4-4c3a-9208-ce37b6894c0a";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/E51C-62B0";
+    {
+      device = "/dev/disk/by-uuid/E51C-62B0";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
@@ -35,6 +38,27 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp4s0.useDHCP = lib.mkDefault true;
 
+  # Fixes for Mediatek wifi cards on F13/F16:. Without the following,
+  # Mediatek cards have been limited to 802.11n networks & speeds:
+  hardware.wirelessRegulatoryDatabase = true;
+  boot.extraModprobeConfig = ''
+    options cfg80211 ieee80211_regdom="US"
+  '';
+  # End Mediatek wifi fixes
+  # Adapted from: https://github.com/psiri/nixos-config/blob/4547136483b70836a2c3596e8548d66f6fda3f77/hosts/fw16-nix/hardware-configuration.nix#L83-L89
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware = {
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    keyboard.qmk.enable = true;
+
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        amdvlk
+        rocm-opencl-icd
+        rocm-opencl-runtime
+      ];
+    };
+  };
 }

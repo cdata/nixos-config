@@ -11,7 +11,7 @@
   gtk = {
     enable = true;
     font = {
-      name = "JetBrainsMono Nerd Font";
+      name = "Cascadia Code";
       size = 11;
     };
     iconTheme = {
@@ -31,7 +31,7 @@
       size = 22;
     };
   };
-  
+
   home.pointerCursor = {
     name = "Nordzy-cursors";
     package = pkgs.nordzy-cursor-theme;

@@ -1,15 +1,18 @@
 { ... }:
-let custom = {
-    font = "JetBrainsMono Nerd Font";
+let
+  custom = {
+    font = "IBM Plex Sans";
     font_size = "15px";
     font_weight = "bold";
     text_color = "#cdd6f4";
-    secondary_accent= "89b4fa";
+    muted_text_color = "rgba(200, 210, 255, 0.5)";
+    # text_color = "#adadad";
+    secondary_accent = "89b4fa";
     tertiary_accent = "f5f5f5";
     background = "11111B";
-    opacity = "0.98";
-};
-in 
+    opacity = "1";
+  };
+in
 {
   programs.waybar.style = ''
 
@@ -25,8 +28,9 @@ in
     }
 
     window#waybar {
-        background: #35254a;
-        border-radius: 3px;
+        background: transparent;
+        background-image: linear-gradient(90deg, rgba(73,59,90,0.5) 0%, rgba(159,78,68,0.5) 33%, rgba(60, 140,145,0.5) 66%, rgba(73,59,90,0.5) 100%);
+        border-radius: 0px;
     }
 
     #workspaces {
@@ -35,7 +39,7 @@ in
         
     }
     #workspaces button {
-        color: ${custom.text_color};
+        color: ${custom.muted_text_color};
         padding-left:  6px;
         padding-right: 6px;
     }
@@ -44,6 +48,10 @@ in
     }
     #workspaces button.active {
         color: #b4befe;
+        transition: none;
+        animation: unset;
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid #b4befe;
     }
 
     #tray, #pulseaudio, #network, #cpu, #memory, #disk, #clock, #battery, #custom-notification {
@@ -71,9 +79,12 @@ in
     }
 
     #pulseaudio {
+
+        /*
         padding-left: 15px;
         padding-right: 9px;
         margin-left: 7px;
+        */
     }
     #battery {
         padding-left: 9px;
@@ -84,7 +95,7 @@ in
         padding-right: 30px;
     }
 
-    custom-notification {
+    #custom-notification {
         padding-left: 20px;
         padding-right: 20px;
     }
@@ -92,6 +103,8 @@ in
     #clock {
         padding-left: 9px;
         padding-right: 15px;
+        font-size: 1.5em;
+        font-weight: 200;
     }
 
     #custom-launcher {

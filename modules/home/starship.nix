@@ -1,4 +1,4 @@
-{ lib, inputs, ... }: 
+{ lib, inputs, ... }:
 {
   programs.starship = {
     enable = true;
@@ -9,7 +9,7 @@
 
     settings = {
       # right_format = "$cmd_duration";
-      
+
       directory = {
         format = "[ ](bold #89b4fa)[ $path ]($style)";
         style = "bold #b4befe";
@@ -27,9 +27,7 @@
         style = "bg:none fg:#f9e2af";
         show_notifications = false;
         min_time_to_notify = 60000;
-      };        
-
-      palette = "catppuccin_mocha";
-    } // builtins.fromTOML (builtins.readFile "${inputs.catppuccin-starship}/palettes/mocha.toml");
+      };
+    };
   };
 }

@@ -21,7 +21,7 @@
       ];
 
       input = {
-        kb_layout = "us,fr";
+        kb_layout = "us";
         kb_options = "grp:alt_caps_toggle";
         numlock_by_default = true;
         follow_mouse = 1;
@@ -35,10 +35,11 @@
         "$mainMod" = "SUPER";
         layout = "dwindle";
         gaps_in = 2;
-        gaps_out = 4;
-        border_size = 2;
-        "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
-        "col.inactive_border" = "0x00000000";
+        gaps_out = 3;
+        border_size = 3;
+        # "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
+        "col.active_border" = "rgb(6abfc6) rgb(887ecb) 45deg";
+        "col.inactive_border" = "rgb(50459b)";
         border_part_of_window = true;
         no_border_on_floating = false;
         resize_on_border = true;
@@ -72,7 +73,7 @@
       };
 
       decoration = {
-        rounding = 3;
+        rounding = 0;
         # active_opacity = 0.90;
         # inactive_opacity = 0.90;
         # fullscreen_opacity = 1.0;
@@ -316,6 +317,7 @@
     };
 
     extraConfig = "
+      blurls=waybar
       monitor=,preferred,auto,auto
 
       xwayland {

@@ -11,17 +11,20 @@
     gtt # google translate TUI
     gifsicle # gif utility
     gimp
+    gnome-font-viewer
     gtrash # rm replacement, put deleted files in system trash
     google-chrome
     hexdump
+    htop
     jdk17 # java
     lazygit
     libreoffice
-    cinnamon.nemo-with-extensions # file manager
+    nemo-with-extensions # file manager
     nil
     nitch # systhem fetch util
     nixpkgs-fmt
     nix-prefetch-github
+    prusa-slicer
     ripgrep # grep replacement
     silver-searcher
     soundwireserver # pass audio to android phone
@@ -34,6 +37,10 @@
     zenity
     winetricks
     wineWowPackages.wayland
+
+    # Fonts
+    ibm-plex
+    cascadia-code
 
     # C / C++
     gcc
