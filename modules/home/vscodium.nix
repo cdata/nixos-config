@@ -10,10 +10,14 @@
       arrterian.nix-env-selector
       # Nix IDE
       jnoortheen.nix-ide
-      # python
+      # Vim-style interaction
+      vscodevim.vim
+      # Rust
+      rust-lang.rust-analyzer
+      # Python
       ms-python.python
 
-      # Color theme
+      # Color themes
       dracula-theme.theme-dracula
       # catppuccin.catppuccin-vsc
       catppuccin.catppuccin-vsc-icons
@@ -36,7 +40,7 @@
       "window.menuBarVisibility" = "toggle";
       "editor.fontFamily" = "'Cascadia Code', 'JetBrainsMono Nerd Font', 'SymbolsNerdFont', 'monospace', monospace";
       "terminal.integrated.fontFamily" = "'Cascadia Code', 'JetBrainsMono Nerd Font', 'SymbolsNerdFont'";
-      "editor.fontSize" = 16;
+      "editor.fontSize" = 14;
       "workbench.colorTheme" = "Shades of Purple";
       "workbench.iconTheme" = "catppuccin-mocha";
       "catppuccin.accentColor" = "lavender";
@@ -45,6 +49,12 @@
       "editor.fontLigatures" = true;
       "editor.minimap.enabled" = false;
       "workbench.startupEditor" = "none";
+
+      "rust-analyzer.procMacro.enable" = true;
+      "rust-analyzer.cargo.loadOutDirsFromCheck" = true;
+      "rust-analyzer.cargo.allFeatures" = false;
+      "rust-analyzer.experimental.procAttrMacros" = true;
+      "rust-analyzer.inlayHints.enable" = true;
 
       "editor.formatOnSave" = true;
       "editor.formatOnType" = true;
