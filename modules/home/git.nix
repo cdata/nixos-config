@@ -1,14 +1,16 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   programs.git = {
     enable = true;
-    
+
     userName = "Chris Joel";
     userEmail = "0xcda7a@gmail.com";
-    
-    extraConfig = { 
+
+    extraConfig = {
       init.defaultBranch = "main";
       credential.helper = "store";
+      user.signingKey = "15A408576FD99F28";
+      commit.gpgSign = true;
     };
   };
 
