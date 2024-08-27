@@ -14,22 +14,35 @@
       vscodevim.vim
       # Rust
       rust-lang.rust-analyzer
+      tamasfe.even-better-toml
       # Python
       ms-python.python
+
+      # Dependency management
+      fill-labs.dependi
 
       # Color themes
       dracula-theme.theme-dracula
       # catppuccin.catppuccin-vsc
       catppuccin.catppuccin-vsc-icons
 
-      #drcika.apc-extension
-      #s-nlf-fh.glassit
+      # Automatic comment re-wrapping
+      stkb.rewrap
+
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      # A color theme
       {
         name = "shades-of-purple";
         publisher = "ahmadawais";
         version = "7.3.2";
         sha256 = "sha256-m3S54YzkgAFgeKuhz+39FvkdejpLwMPaxsLCd17iBYM=";
+      }
+      # WIT
+      {
+        name = "wit-idl";
+        publisher = "bytecodealliance";
+        version = "0.3.1";
+        sha256 = "sha256-AW+TaVGdXqUxNP0swk6xBNTiFTEn5D2CbF+9LYcTRnU=";
       }
     ];
     userSettings = {
@@ -94,6 +107,11 @@
       {
         key = "ctrl+s";
         command = "workbench.action.files.saveFiles";
+      }
+      {
+        key = "ctrl+p";
+        command = "-extension.vim_ctrl+p";
+        when = "editorTextFocus && vim.active && vim.use<C-p> && !inDebugRepl || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'SearchInProgressMode'";
       }
     ];
   };

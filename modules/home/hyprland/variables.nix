@@ -24,5 +24,6 @@
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
     GTK_THEME = "Dracula";
+    EDITOR = "nvim";
   };
 }
