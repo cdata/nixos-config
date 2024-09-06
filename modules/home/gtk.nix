@@ -1,12 +1,22 @@
 { pkgs, config, ... }:
 {
   fonts.fontconfig.enable = true;
-  home.packages = [
-    pkgs.nerdfonts
-    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" "Noto" ]; })
-    pkgs.twemoji-color-font
-    pkgs.noto-fonts-emoji
+  home.packages = with pkgs; [
+    dconf
+    nerdfonts
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "Noto" ]; })
+    twemoji-color-font
+    noto-fonts-emoji
   ];
+
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+  };
 
   gtk = {
     enable = true;

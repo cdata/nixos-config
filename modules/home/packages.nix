@@ -25,6 +25,7 @@
     nitch # systhem fetch util
     nixpkgs-fmt
     nix-prefetch-github
+    openscad
     prusa-slicer
     ripgrep # grep replacement
     silver-searcher

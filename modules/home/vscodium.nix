@@ -44,6 +44,13 @@
         version = "0.3.1";
         sha256 = "sha256-AW+TaVGdXqUxNP0swk6xBNTiFTEn5D2CbF+9LYcTRnU=";
       }
+      # OpenSCAD
+      {
+        name = "openscad-language-support";
+        publisher = "Leathong";
+        version = "1.2.5";
+        sha256 = "sha256-/CLxBXXdUfYlT0RaGox1epHnyAUlDihX1LfT5wGd2J8=";
+      }
     ];
     userSettings = {
       "update.mode" = "none";
@@ -83,7 +90,7 @@
       "breadcrumbs.enabled" = false;
       "editor.renderControlCharacters" = false;
       "workbench.activityBar.location" = "hidden";
-      "workbench.statusBar.visible" = false;
+      "workbench.statusBar.visible" = true;
       "editor.scrollbar.verticalScrollbarSize" = 2;
       "editor.scrollbar.horizontalScrollbarSize" = 2;
       "editor.scrollbar.vertical" = "hidden";
