@@ -3,9 +3,11 @@
   home.packages = (with pkgs; [
     avahi # mdns daemon
     bitwise # cli tool for bit / hex manipulation
+    blender
     evince # gnome pdf viewer
     eza # ls replacement
     entr # perform action when file change
+    evince
     fd # find replacement
     file # Show file information 
     fzf # fuzzy finder
@@ -18,8 +20,8 @@
     hexdump
     htop
     jdk17 # java
+    krita
     lazygit
-    libreoffice
     nemo-with-extensions # file manager
     nil
     nitch # systhem fetch util

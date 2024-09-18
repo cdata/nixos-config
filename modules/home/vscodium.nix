@@ -29,6 +29,9 @@
       # Automatic comment re-wrapping
       stkb.rewrap
 
+      foam.foam-vscode
+      yzhang.markdown-all-in-one
+
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       # A color theme
       {
