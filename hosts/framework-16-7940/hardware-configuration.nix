@@ -58,6 +58,11 @@
         amdvlk
         rocm-opencl-icd
         rocm-opencl-runtime
+        vulkan-extension-layer
+        vulkan-loader
+        vulkan-tools
+        vulkan-utility-libraries
+        vulkan-validation-layers
       ];
     };
   };
