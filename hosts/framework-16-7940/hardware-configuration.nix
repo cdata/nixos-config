@@ -56,8 +56,8 @@
       enable = true;
       extraPackages = with pkgs; [
         amdvlk
-        rocm-opencl-icd
-        rocm-opencl-runtime
+        rocmPackages.rpp-opencl
+        rocmPackages.clr
         vulkan-extension-layer
         vulkan-loader
         vulkan-tools

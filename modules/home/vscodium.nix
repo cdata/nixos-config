@@ -12,26 +12,22 @@
       jnoortheen.nix-ide
       # Vim-style interaction
       vscodevim.vim
+      # Protobuf support
+      zxh404.vscode-proto3
+      # Github Actions language support
+      github.vscode-github-actions
       # Rust
       rust-lang.rust-analyzer
+      # Toml
       tamasfe.even-better-toml
-      # Python
-      ms-python.python
-
       # Dependency management
       fill-labs.dependi
-
-      # Color themes
-      dracula-theme.theme-dracula
-      # catppuccin.catppuccin-vsc
+      # Icons
       catppuccin.catppuccin-vsc-icons
-
       # Automatic comment re-wrapping
       stkb.rewrap
-
+      # Note taking
       foam.foam-vscode
-      yzhang.markdown-all-in-one
-
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       # A color theme
       {
@@ -47,12 +43,19 @@
         version = "0.3.1";
         sha256 = "sha256-AW+TaVGdXqUxNP0swk6xBNTiFTEn5D2CbF+9LYcTRnU=";
       }
-      # OpenSCAD
+      # WGSL and other shader linting
       {
-        name = "openscad-language-support";
-        publisher = "Leathong";
-        version = "1.2.5";
-        sha256 = "sha256-/CLxBXXdUfYlT0RaGox1epHnyAUlDihX1LfT5wGd2J8=";
+        name = "shader-validator";
+        publisher = "antaalt";
+        version = "0.3.0";
+        sha256 = "sha256-XS5K8s1a9Ikyqa9UsJXbjbnoYqrtrdaWRq/2Tj3iMA8=";
+      }
+      # Wasm / WASI support for VSCode plug-ins
+      {
+        name = "wasm-wasi-core";
+        publisher = "ms-vscode";
+        version = "1.0.2";
+        sha256 = "sha256-hrzPNPaG8LPNMJq/0uyOS8jfER1Q0CyFlwR42KmTz8g=";
       }
     ];
     userSettings = {

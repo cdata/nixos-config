@@ -15,7 +15,7 @@ if [ ! -d "$OUT_DIR" ]; then
 fi
 
 is_recorder_running() {
-  pgrep -x wf-recorder >/dev/null
+  pgrep -x wl-screenrec >/dev/null
 }
 
 convert_to_gif() {
@@ -38,15 +38,17 @@ notify() {
 }
 
 screen() {
+  swaync-client -cp
   notify "Starting Recording" "Your screen is being recorded"
-  timeout 600 wf-recorder -F format=rgb24 -x rgb24 -p qp=0 -p crf=0 -p preset=slow -c libx264rgb -f "$TMP_MP4_FILE"
+  timeout 600 wl-screenrec -f "$TMP_MP4_FILE"
 }
 
 area() {
+  swaync-client -cp
   GEOMETRY=$(slurp)
   if [[ ! -z "$GEOMETRY" ]]; then
     notify "Starting Recording" "Your screen is being recorded"
-    timeout 600 wf-recorder -F format=rgb24 -x rgb24 -p qp=0 -p crf=0 -p preset=slow -c libx264rgb -g "$GEOMETRY" -f "$TMP_MP4_FILE"
+    timeout 600 wl-screenrec -g "$GEOMETRY" -f "$TMP_MP4_FILE"
   fi
 }
 
@@ -57,7 +59,7 @@ gif() {
 
 stop() {
   if is_recorder_running; then
-    kill $(pgrep -x wf-recorder)
+    kill $(pgrep -x wl-screenrec)
 
     if [[ -f /tmp/recording_gif ]] then
       notify "Stopped Recording" "Starting GIF conversion phase..."
@@ -87,7 +89,7 @@ stop() {
     [[ -f $TMP_PALETTE_FILE ]] && rm -f "$TMP_PALETTE_FILE"
     [[ -f $TMP_GIF_RESULT ]] && rm -f "$TMP_GIF_RESULT"
     [[ -f $TMP_MP4_FILE ]] && rm -f "$TMP_MP4_FILE"
-    [[ -f /tmp/recording_gif ]] && rm -f /tmp/recording_gif
+    [[ -f /tmp/recording_gif ]] && rm -e /tmp/recording_gif
 
     exit 0
   fi

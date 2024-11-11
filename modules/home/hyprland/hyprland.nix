@@ -1,4 +1,4 @@
-{ inputs, pkgs, ...}: 
+{ inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
     # swww
@@ -6,11 +6,12 @@
     inputs.hypr-contrib.packages.${pkgs.system}.grimblast
     hyprpicker
     hyprpaper
+    glib
     grim
     slurp
     wl-clip-persist
     wf-recorder
-    glib
+    wl-screenrec
     wayland
     direnv
   ];

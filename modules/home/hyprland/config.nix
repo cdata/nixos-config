@@ -57,7 +57,7 @@
       };
 
       dwindle = {
-        no_gaps_when_only = false;
+        # no_gaps_when_only = false;
         force_split = 0;
         special_scale_factor = 1.0;
         split_width_multiplier = 1.0;
@@ -69,7 +69,7 @@
       master = {
         new_status = "master";
         special_scale_factor = 1;
-        no_gaps_when_only = false;
+        # no_gaps_when_only = false;
       };
 
       decoration = {
@@ -92,13 +92,12 @@
           xray = true;
         };
 
-        drop_shadow = true;
-
-        shadow_ignore_window = true;
-        shadow_offset = "0 0";
-        shadow_range = 10;
-        shadow_render_power = 3;
-        "col.shadow" = "rgba(11112277)";
+        # shadow_render_power = 3;
+        # shadow_range = 10;
+        # shadow_offset = "0 0";
+        # shadow_ignore_window = true;
+        # drop_shadow = true;
+        # "col.shadow" = "rgba(11112277)";
       };
 
       animations = {
@@ -143,14 +142,11 @@
         "$mainMod, T, exec, kitty"
         "ALT, T, exec, kitty --title float_kitty"
         "ALT SHIFT, T, exec, kitty --start-as=fullscreen -o 'font_size=16'"
-        "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] google-chrome'"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
         "$mainMod, Space, togglefloating,"
         "$mainMod, D, exec, fuzzel"
-        "$mainMod SHIFT, D, exec, hyprctl dispatch exec '[workspace 4 silent] discord --enable-features=UseOzonePlatform --ozone-platform=wayland'"
-        "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
         "$mainMod, Escape, exec, swaylock"
         "$mainMod SHIFT, Escape, exec, shutdown-script"
         "$mainMod, P, pseudo,"
@@ -161,9 +157,14 @@
         "$mainMod, W,exec, wallpaper-picker"
         "$mainMod SHIFT, W, exec, vm-start"
 
-        # screenshot
+        # screenshot / recording
         "$mainMod, Print, exec, grimblast --notify --cursor --freeze save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
         ",Print, exec, grimblast --notify --cursor --freeze copy area"
+
+        "CTRL, Print, exec, record area"
+        "CTRL_SHIFT, Print, exec, record stop"
+        "SUPER, Print, exec, record screen"
+        "SUPER_SHIFT, Print, exec, record stop"
 
         # switch focus
         "$mainMod, left, movefocus, l"
