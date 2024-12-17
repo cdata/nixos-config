@@ -14,6 +14,11 @@
       vscodevim.vim
       # Protobuf support
       zxh404.vscode-proto3
+      # Terraform
+      hashicorp.terraform
+      # Kubernetes (yes: you need both)
+      # ms-kubernetes-tools.vscode-kubernetes-tools
+      # redhat.vscode-yaml
       # Github Actions language support
       github.vscode-github-actions
       # Rust
@@ -29,6 +34,13 @@
       # Note taking
       foam.foam-vscode
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      # Postgres
+      {
+        name = "pgformatter";
+        publisher = "bradymholt";
+        version = "1.28.1";
+        sha256 = "sha256-7Wo9vCfvH97x15sTkA9c3nA1KZZljvUVs3esdTJftPY=";
+      }
       # A color theme
       {
         name = "shades-of-purple";
@@ -60,20 +72,43 @@
     ];
     userSettings = {
       "update.mode" = "none";
+
+      "breadcrumbs.enabled" = true;
+
+      "editor.fontFamily" = "'Cascadia Code', 'JetBrainsMono Nerd Font', 'SymbolsNerdFont', 'monospace', monospace";
+      "editor.fontSize" = 14;
+      "editor.fontLigatures" = true;
+      "editor.formatOnSave" = true;
+      "editor.formatOnType" = true;
+      "editor.formatOnPaste" = true;
+      "editor.minimap.enabled" = false;
+      "editor.mouseWheelZoom" = false;
+      "editor.scrollbar.verticalScrollbarSize" = 2;
+      "editor.scrollbar.horizontalScrollbarSize" = 2;
+      "editor.scrollbar.vertical" = "hidden";
+      "editor.scrollbar.horizontal" = "hidden";
+
       "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
       "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
 
       "window.menuBarVisibility" = "toggle";
-      "editor.fontFamily" = "'Cascadia Code', 'JetBrainsMono Nerd Font', 'SymbolsNerdFont', 'monospace', monospace";
       "terminal.integrated.fontFamily" = "'Cascadia Code', 'JetBrainsMono Nerd Font', 'SymbolsNerdFont'";
-      "editor.fontSize" = 14;
+
+      "workbench.activityBar.location" = "hidden";
       "workbench.colorTheme" = "Shades of Purple";
+      "workbench.editor.limit.enabled" = true;
+      "workbench.editor.limit.perEditorGroup" = true;
+      "workbench.editor.limit.value" = 10;
+      "workbench.editor.showTabs" = "single";
       "workbench.iconTheme" = "catppuccin-mocha";
+      "workbench.layoutControl.enabled" = false;
+      "workbench.layoutControl.type" = "menu";
+      "workbench.statusBar.visible" = true;
+
       "catppuccin.accentColor" = "lavender";
       "vsicons.dontShowNewVersionMessage" = true;
       "explorer.confirmDragAndDrop" = false;
-      "editor.fontLigatures" = true;
-      "editor.minimap.enabled" = false;
+
       "workbench.startupEditor" = "none";
 
       "rust-analyzer.procMacro.enable" = true;
@@ -82,28 +117,8 @@
       "rust-analyzer.experimental.procAttrMacros" = true;
       "rust-analyzer.inlayHints.enable" = true;
 
-      "editor.formatOnSave" = true;
-      "editor.formatOnType" = true;
-      "editor.formatOnPaste" = true;
-
-      "workbench.layoutControl.type" = "menu";
-      "workbench.editor.limit.enabled" = true;
-      "workbench.editor.limit.value" = 10;
-      "workbench.editor.limit.perEditorGroup" = true;
-      "workbench.editor.showTabs" = "single";
-      "files.autoSave" = "onWindowChange";
       "explorer.openEditors.visible" = 0;
-      "breadcrumbs.enabled" = false;
       "editor.renderControlCharacters" = false;
-      "workbench.activityBar.location" = "hidden";
-      "workbench.statusBar.visible" = true;
-      "editor.scrollbar.verticalScrollbarSize" = 2;
-      "editor.scrollbar.horizontalScrollbarSize" = 2;
-      "editor.scrollbar.vertical" = "hidden";
-      "editor.scrollbar.horizontal" = "hidden";
-      "workbench.layoutControl.enabled" = false;
-
-      "editor.mouseWheelZoom" = true;
 
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nil";

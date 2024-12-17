@@ -3,8 +3,8 @@
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     dconf
-    nerdfonts
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "Noto" ]; })
+    # nerdfonts
+    # (nerdfonts.override { fonts = [ "JetBrainsMono" "Noto" ]; })
     twemoji-color-font
     noto-fonts-emoji
   ];

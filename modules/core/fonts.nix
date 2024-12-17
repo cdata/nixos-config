@@ -7,7 +7,7 @@
       google-fonts
       ibm-plex
       mononoki
-      nerdfonts
+      # nerdfonts
       powerline-fonts
       source-code-pro
       source-sans-pro

@@ -4,6 +4,7 @@
     avahi # mdns daemon
     bitwise # cli tool for bit / hex manipulation
     blender # 3D modeling software
+    dig
     evince # gnome pdf viewer
     eza # ls replacement
     entr # perform action when file change
@@ -22,7 +23,9 @@
     # helix
     hexdump
     htop
+    inkscape
     # jdk17 # java
+    kubectl
     krita
     #lapce # Programming text editor
     ldtk

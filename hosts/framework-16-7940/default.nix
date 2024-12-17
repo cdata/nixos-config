@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: 
+{ pkgs, config, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -21,14 +21,14 @@
     framework-tool
     powertop
   ];
-  
-  services = {    
+
+  services = {
     # thermald.enable = true;
     # cpupower-gui.enable = true;
     power-profiles-daemon.enable = true;
 
     fprintd.enable = true;
- 
+
     upower = {
       enable = true;
       percentageLow = 20;
@@ -43,7 +43,16 @@
   boot = {
     blacklistedKernelModules = [ "k10temp" ];
     kernelModules = [ "acpi_call" "cros_ec" "cros_ec_lpcs" "zenpower" ];
-    kernelParams = [ "amd_pstate=active" "amdgpu.sg_display=0" ];
+    kernelParams = [
+      "amd_pstate=active"
+      "amdgpu.sg_display=0"
+      # There seems to be an issue with panel self-refresh (PSR) that
+      # causes hangs for users.
+      #
+      # https://community.frame.work/t/fedora-kde-becomes-suddenly-slow/58459
+      # https://gitlab.freedesktop.org/drm/amd/-/issues/3647
+      "amdgpu.dcdebugmask=0x10"
+    ];
     extraModulePackages = with config.boot.kernelPackages;
       [
         acpi_call
@@ -51,7 +60,7 @@
         framework-laptop-kmod
         zenpower
       ]
-      ++ [pkgs.cpupower-gui];
+      ++ [ pkgs.cpupower-gui ];
   };
 
   hardware.sensor.iio.enable = true;
