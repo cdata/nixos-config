@@ -70,7 +70,7 @@ This source tree will require some modification if it is forked by persons other
 than me. Here is a partial (not-comprehensive) list of things that may need to
 be tweaked (and perhaps ought to be made parameterizable):
 
-- [Public key needs to be changed][./public_key.txt]
+- [Public key needs to be changed](./public_key.txt)
 - [Bootstrap script Git repository references][bootstrap script]
 - [Git configuration](./modules/user/packages/git.nix)
 - [Entries under the `hosts` folder](./hosts)
