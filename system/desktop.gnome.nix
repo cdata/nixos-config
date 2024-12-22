@@ -14,7 +14,6 @@
     variant = "";
   };
 
-
   environment.systemPackages = with pkgs; [
     dconf-editor
     gnome-tweaks
@@ -34,6 +33,7 @@
     profiles.user.databases = with pkgs; [{
       settings = {
         "org/gnome/mutter" = {
+          # Enable fractional scaling
           experimental-features = [ "scale-monitor-framebuffer" ];
         };
         "org/gnome/desktop/interface" = {
@@ -49,6 +49,11 @@
           outer-gaps = lib.gvariant.mkUint32 4;
           enable-autotiling = true;
           layouts-json = (builtins.readFile ./desktop.gnome/tiling-shell-layouts.json);
+        };
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+          name = "Launch Terminal";
+          binding = "<Super>t";
+          command = "kitty";
         };
         "org/gnome/shell" = {
           # enables user extensions
