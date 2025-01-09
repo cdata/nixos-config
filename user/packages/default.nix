@@ -3,8 +3,6 @@
   imports = [
     (import ./vscodium.nix)
   ] ++ [
-    (import ./kitty.nix)
-  ] ++ [
     (import ./ghostty.nix)
   ] ++ [
     (import ./helix.nix)

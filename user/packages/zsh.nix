@@ -17,7 +17,8 @@
       export "MICRO_TRUECOLOR=1"
     '';
     shellAliases = {
-      e = "kitty --detach -o window_padding_width=0 -o background_opacity=0.8 -d `pwd` zsh -c 'hx ./'";
+      # Launch terminal editor in current working directory
+      e = "nohup ghostty --working-directory=`pwd` --initial-command='zsh -c \"hx ./\"' > /dev/null 2>&1 & disown";
 
       # Utils
       c = "clear";
@@ -25,6 +26,7 @@
       tt = "gtrash put";
       cat = "bat";
       code = "codium";
+      hexdump = "xxd";
       icat = "kitten icat";
       open = "xdg-open";
 

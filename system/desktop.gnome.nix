@@ -38,8 +38,7 @@
           experimental-features = [ "scale-monitor-framebuffer" ];
         };
         "org/gnome/desktop/interface" = {
-          # cursor-theme = "BreezeX-RosePine-Linux";
-          # icon-theme = "BreezeX-RosePine-Linux";
+          cursor-theme = "BreezeX-RosePine-Linux";
           gtk-theme = "rose-pine-moon";
         };
         "org/gnome/shell/extensions/user-theme" = {

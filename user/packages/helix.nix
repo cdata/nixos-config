@@ -4,11 +4,6 @@
     enable = true;
     settings = {
       theme = "custom_transparent";
-      # editor.cursor-shape = {
-      #   normal = "block";
-      #   insert = "bar";
-      #   select = "underline";
-      # };
     };
     languages.language = [
       {
@@ -24,7 +19,7 @@
     ];
     themes = {
       custom_transparent = {
-        "inherits" = "dracula";
+        "inherits" = "rose_pine_moon";
         "ui.background" = { };
       };
     };
