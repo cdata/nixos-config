@@ -33,12 +33,13 @@
     profiles.user.databases = with pkgs; [{
       settings = {
         "org/gnome/mutter" = {
+          dynamic-workspaces = true;
           # Enable fractional scaling
           experimental-features = [ "scale-monitor-framebuffer" ];
         };
         "org/gnome/desktop/interface" = {
-          cursor-theme = "BreezeX-RosePine-Linux";
-          icon-theme = "BreezeX-RosePine-Linux";
+          # cursor-theme = "BreezeX-RosePine-Linux";
+          # icon-theme = "BreezeX-RosePine-Linux";
           gtk-theme = "rose-pine-moon";
         };
         "org/gnome/shell/extensions/user-theme" = {
@@ -49,11 +50,22 @@
           outer-gaps = lib.gvariant.mkUint32 4;
           enable-autotiling = true;
           layouts-json = (builtins.readFile ./desktop.gnome/tiling-shell-layouts.json);
+          selected-layouts = (builtins.readFile ./desktop.gnome/tiling-shell-selected-layouts.json);
         };
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
           name = "Launch Terminal";
           binding = "<Super>t";
-          command = "kitty";
+          command = "ghostty";
+        };
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+          name = "Record Screen Area (High Quality)";
+          binding = "<Super>Print";
+          command = "record area";
+        };
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+          name = "Stop Recording (High Quality)";
+          binding = "<Shift><Super>Print";
+          command = "record stop";
         };
         "org/gnome/shell" = {
           # enables user extensions

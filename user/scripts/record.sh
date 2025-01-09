@@ -38,13 +38,11 @@ notify() {
 }
 
 screen() {
-  swaync-client -cp
   notify "Starting Recording" "Your screen is being recorded"
   timeout 600 wl-screenrec -f "$TMP_MP4_FILE"
 }
 
 area() {
-  swaync-client -cp
   GEOMETRY=$(slurp)
   if [[ ! -z "$GEOMETRY" ]]; then
     notify "Starting Recording" "Your screen is being recorded"

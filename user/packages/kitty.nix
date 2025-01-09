@@ -6,7 +6,7 @@
     themeFile = "rose-pine-moon";
 
     font = {
-      name = "Cascadia Code PL";
+      name = "Cascadia Code NF";
       size = 11;
     };
 

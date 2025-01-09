@@ -5,6 +5,8 @@
   ] ++ [
     (import ./kitty.nix)
   ] ++ [
+    (import ./ghostty.nix)
+  ] ++ [
     (import ./helix.nix)
   ] ++ [
     (import ./gpg.nix)

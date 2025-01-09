@@ -13,5 +13,9 @@ in
     ensure-environment
     rebuild-nix
     upgrade-nix
-  ];
+  ] ++ (with pkgs; [
+    # Needed by record
+    slurp
+    wl-screenrec
+  ]);
 }

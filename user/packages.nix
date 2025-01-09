@@ -3,12 +3,14 @@
 
   home.packages = with pkgs;
     [
+      aseprite # Pixel art editor
       avahi # mdns daemon
       bat # Alternative to cat
       blender # 3D modeling software
       catppuccin
-
+      code-cursor
       dig # DNS query tool
+      easyeffects
       evince # gnome pdf viewer
       eza # ls replacement
       fd # find replacement
@@ -43,6 +45,7 @@
       yubikey-manager # Configure security keys
       yt-dlp-light
       zenity
+      wayfarer # Screen recorder
       winetricks
       wineWowPackages.wayland
 

@@ -15,5 +15,6 @@
     # ++ [ (import ./desktop.hyprland.nix) ]
     ++ [ (import ./yubikey.nix) ]
     ++ [ (import ./fonts.nix) ]
-    ++ [ (import ./packages.nix) ];
+    ++ [ (import ./packages.nix) ]
+    ++ [ (import ./virtualization.nix) ];
 }
