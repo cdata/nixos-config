@@ -6,6 +6,7 @@
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
+    backupFileExtension = "home-manager.backup";
 
     extraSpecialArgs = {
       inherit inputs username host hostname configRoot;

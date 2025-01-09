@@ -1,6 +1,8 @@
 { ... }:
 {
   imports = [
+    (import ./btop.nix)
+  ] ++ [
     (import ./vscodium.nix)
   ] ++ [
     (import ./ghostty.nix)

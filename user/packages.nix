@@ -7,7 +7,6 @@
       avahi # mdns daemon
       bat # Alternative to cat
       blender # 3D modeling software
-      btop # Fancy htop
       catppuccin
       code-cursor
       dig # DNS query tool
