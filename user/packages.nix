@@ -6,7 +6,12 @@
       aseprite # Pixel art editor
       avahi # mdns daemon
       bat # Alternative to cat
-      blender # 3D modeling software
+      (blender.override
+        {
+          # TODO: Make this sensitive to the chosen host
+          hipSupport = true;
+        })
+      # blender # 3D modeling software
       catppuccin
       code-cursor
       dig # DNS query tool
