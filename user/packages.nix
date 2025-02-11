@@ -6,12 +6,14 @@
       aseprite # Pixel art editor
       avahi # mdns daemon
       bat # Alternative to cat
-      (blender.override
-        {
-          # TODO: Make this sensitive to the chosen host
-          hipSupport = true;
-        })
+      # https://nixpk.gs/pr-tracker.html?pr=380449
+      # (blender.override
+      #   {
+      #     # TODO: Make this sensitive to the chosen host
+      #     hipSupport = true;
+      #   })
       # blender # 3D modeling software
+      calibre
       catppuccin
       code-cursor
       dig # DNS query tool
@@ -30,16 +32,24 @@
       inkscape # Vector image editor
       jq # JSON swiss army knife
       kitty-themes # Themes for the terminal of record
+      kooha # Screen recorder
       krita # Digital painting tool
       ldtk # Tile map editor
-      lldb # Debugger for llvm-adjacent tools
+      # lldb # Debugger for llvm-adjacent tools
+      # See: https://github.com/NixOS/nixpkgs/issues/380196
+      (lldb.overrideAttrs
+        {
+          dontCheckForBrokenSymlinks = true;
+        })
       nil # Used by VSCode Nix extensions
       nitch # system fetch util
       nixpkgs-fmt # Formatter for .nix files
       nix-prefetch-github # Used by VSCode Nix extensions
-      obs-studio # Livestreaming studio
+      obs-studio # Livestreaming studio} 
       openscad # Parametric 3D modeler
+      pest-ide-tools # LSP for Pest grammar language
       prusa-slicer # Model slicer for 3D printing
+      poppler_utils # PDF manipulation
       rose-pine-cursor # Cursor theme
       rust-analyzer # LSP for Rust toolchains
       ripgrep # grep replacement
@@ -49,7 +59,7 @@
       yubikey-manager # Configure security keys
       yt-dlp-light # Commnad-line video downloader
       zenity # Scriptable GTK+ dialogs
-      wayfarer # Screen recorder
+      # wayfarer # Screen recorder
       winetricks # Wine support config
       wineWowPackages.wayland # More of same
 

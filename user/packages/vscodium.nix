@@ -71,11 +71,21 @@
         version = "1.0.2";
         sha256 = "sha256-hrzPNPaG8LPNMJq/0uyOS8jfER1Q0CyFlwR42KmTz8g=";
       }
+      # Pest grammar syntax / LSP
+      {
+        name = "pest-ide-tools";
+        publisher = "pest";
+        version = "0.3.11";
+        sha256 = "sha256-RU0LAuVYNynx0OFd7ID07t7bggGWzQNAZLRXMm+hnwE=";
+      }
     ];
     userSettings = {
       "update.mode" = "none";
 
       "breadcrumbs.enabled" = true;
+
+      "pestIdeTools.serverPath" = "${pkgs.pest-ide-tools}/bin/pest-language-server";
+      "pestIdeTools.checkForUpdates" = false;
 
       # "window.zoomLevel" = 1;
       "editor.fontFamily" = "'Cascadia Code', 'monospace', monospace";
