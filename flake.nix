@@ -36,6 +36,21 @@
       # overlays.default = selfPkgs.overlay;
 
       nixosConfigurations = {
+        custom-desktop-contradiction = nixpkgs.lib.nixosSystem {
+          inherit system pkgs;
+
+          specialArgs = {
+            host = "custom-desktop-contradiction";
+            hostname = "contradiction";
+            inherit self inputs username configRoot;
+          };
+
+          modules = [
+            (import ./hosts/custom-desktop-contradiction)
+            ./configuration.nix
+          ];
+        };
+
         framework-16-7940 = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
 

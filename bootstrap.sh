@@ -61,7 +61,8 @@ make_directory() {
 
 select_host() {
     hosts=(
-        "[${YELLOW}F${NORMAL}]ramework 16 7940"
+        "Framework 16 7940 aka '[${YELLOW}d${NORMAL}]istortion'"
+        "Custom Desktop aka '[${YELLOW}c${NORMAL}]ontradiction'"
     )
 
     echo -e "Available host configurations include:\n"
@@ -75,8 +76,10 @@ select_host() {
     read -n 1 -r
     echo
 
-    if [[ $REPLY =~ ^[Ff]$ ]]; then
+    if [[ $REPLY =~ ^[Dd]$ ]]; then
         HOST='framework-16-7940'
+    elif [[ $REPLY =~ ^[Cc]$ ]]; then
+        HOST='custom-desktop-contradiction'
     else
         echo "${NORMAL}Invalid choice!"
         exit 1
