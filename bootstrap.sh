@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 set_variables() {
     # Config
     CONFIG_ROOT=$HOME/Git/github.com/cdata/nixos-config

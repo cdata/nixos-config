@@ -32,7 +32,8 @@
 ## Bootstrapping
 
 1. [Install NixOS from media of your choice][NixOS Download]
-2. Run the [bootstrap script] and answer the prompts
+2. Ensure that you have the `git` package installed (it is not installed by default)
+3. Run the [bootstrap script] and answer the prompts
 
 Note: after running the [bootstrap script], the source tree of this repository will be checked out in `$HOME/Git/github.com/cdata/nixos-config`.
 
