@@ -147,8 +147,8 @@ install() {
     pushd $CONFIG_ROOT
 
     # Get the hardware configuration
-    echo -e "Copying ${MAGENTA}/etc/nixos/hardware-configuration.nix${NORMAL} to ${MAGENTA}./hosts/${HOST}/${NORMAL}\n"
-    cp /etc/nixos/hardware-configuration.nix ./hosts/${HOST}/hardware-configuration.nix
+    echo -e "Copying ${MAGENTA}/etc/nixos/hardware-configuration.nix${NORMAL} to ${MAGENTA}\$CONFIG_ROOT/hosts/${HOST}/${NORMAL}\n"
+    cp /etc/nixos/hardware-configuration.nix $CONFIG_ROOT/hosts/${HOST}/hardware-configuration.nix
 
     # Build the system (flakes + home manager)
     echo -e "\nBootstrapping the ${YELLOW}'${HOST}' ${NORMAL}system...\n"
