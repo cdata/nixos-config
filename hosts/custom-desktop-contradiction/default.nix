@@ -11,12 +11,6 @@
     openssh.enable = true;
   };
 
-  boot = {
-    # These are included on a fresh install of NixOS from media, but
-    # seem to be omitted when running `nixos-generate-config` afterwards
-    initrd.availableKernelModules = [ "usb_storage" "sd_mod" ];
-  };
-
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
