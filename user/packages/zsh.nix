@@ -1,4 +1,4 @@
-{ configRoot, ... }:
+{ configRoot, pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -12,7 +12,7 @@
         "fzf"
       ];
     };
-    initExtraFirst = ''
+    initContent = pkgs.lib.mkBefore ''
       DISABLE_MAGIC_FUNCTIONS=true
       export "MICRO_TRUECOLOR=1"
     '';

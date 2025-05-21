@@ -16,5 +16,7 @@
     (import ./zsh.nix)
   ] ++ [
     (import ./starship.nix)
+  ] ++ [
+    (import ./zed.nix)
   ];
 }

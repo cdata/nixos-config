@@ -50,6 +50,7 @@
       pest-ide-tools # LSP for Pest grammar language
       prusa-slicer # Model slicer for 3D printing
       poppler_utils # PDF manipulation
+      radicle-node
       rose-pine-cursor # Cursor theme
       rust-analyzer # LSP for Rust toolchains
       ripgrep # grep replacement
