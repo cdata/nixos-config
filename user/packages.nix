@@ -15,6 +15,7 @@
       # blender # 3D modeling software
       calibre
       catppuccin
+      claude-code
       code-cursor
       dig # DNS query tool
       easyeffects
