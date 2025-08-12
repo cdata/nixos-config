@@ -11,6 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
     hyprland = {
@@ -20,7 +25,7 @@
     };
   };
 
-  outputs = { nixpkgs, self, ... } @ inputs:
+  outputs = { nixpkgs, self, disko, ... } @ inputs:
 
     let
       overlays = [ (import ./overlay).overlay ];
@@ -29,6 +34,7 @@
         config.allowUnfree = true;
       };
       username = "cdata";
+      configRepo = "https://github.com/cdata/nixos-config";
       configRoot = "/home/cdata/Git/github.com/cdata/nixos-config";
       system = "x86_64-linux";
     in
@@ -42,12 +48,13 @@
           specialArgs = {
             host = "custom-desktop-contradiction";
             hostname = "contradiction";
-            inherit self inputs username configRoot;
+            inherit self inputs username configRoot configRepo;
           };
 
           modules = [
+            disko.nixosModules.disko
             (import ./hosts/custom-desktop-contradiction)
-            ./configuration.nix
+            (import ./configurations/gaming)
           ];
         };
 
@@ -57,12 +64,12 @@
           specialArgs = {
             host = "framework-16-7940";
             hostname = "distortion";
-            inherit self inputs username configRoot;
+            inherit self inputs username configRoot configRepo;
           };
 
           modules = [
             (import ./hosts/framework-16-7940)
-            ./configuration.nix
+            (import ./configurations/workstation)
           ];
         };
       };

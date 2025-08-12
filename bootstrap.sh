@@ -27,20 +27,11 @@ clone() {
 
     set -e
 
-    if [[ ! -d $destination ]]; then
-        echo "Cloning $repo to $destination..."
-        mkdir -p $destination
-        git clone $repo $destination
-    elif [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]]; then
-        echo "Dotfile repository has a dirty working tree; aborting sync!"
-        exit 1
-    else
-        echo "Syncing git repository at $destination..."
-        pushd $destination
-        git fetch
-        git rebase origin/master
-        popd
-    fi
+    nix-shell -p git --command "bash -c '
+    echo \"Cloning $repo to $destination...\"
+    mkdir -p $destination
+    git clone $repo $destination
+    '"
 
     set +e
 }
@@ -134,27 +125,22 @@ install() {
 
     echo -e "\n${RED}Starting installation${NORMAL}\n"
 
-    # Make basic home directory structure
-    directories=(
-        "$HOME/Git/github.com/cdata"
-    )
-
-    for directory in "${directories[@]}"; do
-        make_directory $directory
-    done
-
     # Clone the config repository
     clone $CONFIG_REPO $CONFIG_ROOT
 
     pushd $CONFIG_ROOT
 
-    # Get the hardware configuration
-    echo -e "Copying ${MAGENTA}/etc/nixos/hardware-configuration.nix${NORMAL} to ${MAGENTA}\$CONFIG_ROOT/hosts/${HOST}/${NORMAL}\n"
-    cp /etc/nixos/hardware-configuration.nix $CONFIG_ROOT/hosts/${HOST}/hardware-configuration.nix
+    echo "Formatting disk..."
+    sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- \
+        --mode disko \
+        ./hosts/${HOST}/disk-config.nix
 
-    # Build the system (flakes + home manager)
-    echo -e "\nBootstrapping the ${YELLOW}'${HOST}' ${NORMAL}system...\n"
-    sudo nixos-rebuild switch --flake .#${HOST}
+    echo "Generating hardware configuration..."
+    nixos-generate-config --root /mnt
+    cp /mnt/etc/nixos/hardware-configuration.nix ./hosts/${HOSTNAME}/
+
+    echo "Installing NixOS..."
+    nixos-install --flake .#${HOST}
 
     popd
 

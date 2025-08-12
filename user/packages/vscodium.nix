@@ -26,6 +26,8 @@
         rust-lang.rust-analyzer
         # Toml
         tamasfe.even-better-toml
+        # Mermaid support for markdown previews
+        bierner.markdown-mermaid
         # Dependency management
         fill-labs.dependi
         # Icons

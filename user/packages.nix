@@ -16,7 +16,6 @@
       calibre
       catppuccin
       claude-code
-      code-cursor
       dig # DNS query tool
       easyeffects
       evince # gnome pdf viewer
@@ -25,11 +24,13 @@
       file # Show file information 
       furnace # Chiptune tracker
       fzf # fuzzy finder
+      ghostscript_headless
       gifsicle # gif utility
       gimp # Raster image editor
       gtrash # rm replacement, put deleted files in system trash
       google-chrome # Web browser
       htop # Fancy top
+      imagemagick
       inkscape # Vector image editor
       jq # JSON swiss army knife
       kitty-themes # Themes for the terminal of record
@@ -42,15 +43,18 @@
         {
           dontCheckForBrokenSymlinks = true;
         })
+      lmstudio
       nil # Used by VSCode Nix extensions
       nitch # system fetch util
       nixpkgs-fmt # Formatter for .nix files
       nix-prefetch-github # Used by VSCode Nix extensions
       obs-studio # Livestreaming studio} 
+      ollama
       openscad # Parametric 3D modeler
       pest-ide-tools # LSP for Pest grammar language
       prusa-slicer # Model slicer for 3D printing
       poppler_utils # PDF manipulation
+      qpdf # Moar PDF manipulation
       radicle-node
       rose-pine-cursor # Cursor theme
       rust-analyzer # LSP for Rust toolchains
